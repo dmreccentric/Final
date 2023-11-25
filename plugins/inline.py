@@ -24,8 +24,8 @@ async def answer(bot, query):
     if not await inline_users(query):
         await query.answer(results=[],
                            cache_time=0,
-                           switch_pm_text='okDa',
-                           switch_pm_parameter="hehe")
+                           switch_pm_text='𝗖𝘂𝗿𝗿𝗲𝗻𝘁𝗹𝘆 𝗜𝗻𝗹𝗶𝗻𝗲 𝗳𝗲𝗮𝘁𝘂𝗿𝗲 𝗻𝗼𝘁 𝗘𝗻𝗮𝗯𝗹𝗲𝗱 𝗯𝗲𝗰𝗮𝘂𝘀𝗲 𝗼𝗳 Copyright.',
+                           switch_pm_parameter="Use the Group or PM")
         return
 
     if AUTH_CHANNEL and not await is_subscribed(bot, query):
@@ -96,7 +96,7 @@ async def answer(bot, query):
 
 
 def get_reply_markup(query):
-    buttons = [[InlineKeyboardButton('⟳ ꜱᴇᴀʀᴄʜ ᴀɢᴀɪɴ', switch_inline_query_current_chat=query)]]
+    buttons = [[InlineKeyboardButton('♻️ ꜱᴇᴀʀᴄʜ ᴀɢᴀɪɴ', switch_inline_query_current_chat=query)]]
     return InlineKeyboardMarkup(buttons)
 
 
