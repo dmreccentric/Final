@@ -422,20 +422,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "rmbgsticker":
         await removebg_sticker(client, query.message)
     elif query.data == "pages":
-        await query.answer("🤨 Cᴜʀɪᴏsɪᴛʏ Is A Lɪᴛᴛʟᴇ Mᴏʀᴇ, Isɴ'ᴛ Iᴛ? 😁", show_alert=True)
-    elif query.data == "howdl":
-        try: await query.answer(script.HOW_TO_DOWNLOAD.format(query.from_user.first_name), show_alert=True)
-        except: await query.message.edit(script.HOW_TO_DOWNLOAD.format(query.from_user.first_name))
-
+        await query.answer()
+    
     elif query.data == "start":                        
         buttons = [[
-            InlineKeyboardButton("➕️ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Cʜᴀᴛ ➕", url=f"http://t.me/{temp.U_NAME}?startgroup=true")
+            InlineKeyboardButton('🧩 TUϮԾᏒIΛL', url="https://t.me/mcrequestbot"),
+            InlineKeyboardButton("🍿 UᎮDΛTΞS 🍿", url="https://t.me/Lordshiptv")
             ],[
-            InlineKeyboardButton("Sᴇᴀʀᴄʜ 🔎", switch_inline_query_current_chat=''), 
-            InlineKeyboardButton("Cʜᴀɴɴᴇʟ 🔈", url="https://t.me/mkn_bots_updates")
-            ],[      
-            InlineKeyboardButton("Hᴇʟᴩ 🕸️", callback_data="help"),
-            InlineKeyboardButton("Aʙᴏᴜᴛ ✨", callback_data="about")
+            InlineKeyboardButton("♻️ HΞLᎮ ♻️", callback_data="help"),
+            InlineKeyboardButton("💫 ΛBԾUϮ 💫", callback_data="about")
         ]]
         await query.edit_message_media(InputMediaPhoto(random.choice(PICS), START_MESSAGE.format(user=query.from_user.mention, bot=client.mention), enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
        
@@ -443,13 +438,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('⚙️ Aᴅᴍɪɴ Pᴀɴᴇʟ ⚙️', 'admin')            
             ],[
-            InlineKeyboardButton('Fɪʟᴛᴇʀꜱ', 'openfilter'),
-            InlineKeyboardButton('Cᴏɴɴᴇᴄᴛ', 'coct')
+            InlineKeyboardButton('💼 Fɪʟᴛᴇʀꜱ', 'openfilter'),
+            InlineKeyboardButton('📟 Cᴏɴɴᴇᴄᴛ', 'coct')
             ],[                       
-            InlineKeyboardButton('Fɪʟᴇ Sᴛᴏʀᴇ', 'newdata'),
-            InlineKeyboardButton('Exᴛʀᴀ Mᴏᴅᴇ', 'extmod')
+            InlineKeyboardButton('🗂 Fɪʟᴇ Sᴛᴏʀᴇ', 'newdata'),
+            InlineKeyboardButton('🛠️ Exᴛʀᴀ Mᴏᴅᴇ', 'extmod')
             ],[           
-            InlineKeyboardButton('Gʀᴏᴜᴩ Mᴀɴᴀɢᴇʀ', 'gpmanager'), 
+            InlineKeyboardButton('🎫 Gʀᴏᴜᴩ Mᴀɴᴀɢᴇʀ', 'gpmanager'), 
             InlineKeyboardButton('Bᴏᴛ Sᴛᴀᴛᴜꜱ ❄️', 'stats')
             ],[
             InlineKeyboardButton('✘ Cʟᴏꜱᴇ', 'close_data'),
@@ -468,8 +463,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "source":
         buttons = [[
-            InlineKeyboardButton('ꜱᴏᴜʀᴄᴇ ᴄᴏᴅᴇ', url='https://github.com/MrMKN/PROFESSOR-BOT')
-            ],[
             InlineKeyboardButton('‹ Bᴀᴄᴋ', 'about')
         ]]
         await query.edit_message_media(InputMediaPhoto(random.choice(PICS), script.SOURCE_TXT, enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
@@ -480,8 +473,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('« Bᴀᴄᴋ', 'help')           
         ]]
         if query.from_user.id not in ADMINS:
-            return await query.answer("Sᴏʀʀʏ Tʜɪs Mᴇɴᴜ Oɴʟʏ Fᴏʀ Mʏ Aᴅᴍɪɴs ⚒️", show_alert=True)
-        await query.message.edit("Pʀᴏᴄᴇꜱꜱɪɴɢ Wᴀɪᴛ Fᴏʀ 15 ꜱᴇᴄ...")
+            return await query.answer("𝐒ᴏʀʀʏ 𝐓ʜɪ𝐬 𝐌ᴇɴᴜ 𝐈𝐒 𝐎ɴʟʏ 𝐅ᴏʀ 𝐌ʏ 𝐀ᴅᴍ𝐈ɴ𝐬 ⚒️", show_alert=True)
+        await query.message.edit("𝐏ʀᴏᴄᴇꜱꜱɪɴɢ 𝐖ᴀɪᴛ 𝐅ᴏʀ 𝟏𝟓 ꜱᴇᴄ...")
         total, used, free = shutil.disk_usage(".")
         stats = script.SERVER_STATS.format(get_time(time.time() - client.uptime), psutil.cpu_percent(), psutil.virtual_memory().percent, humanbytes(total), humanbytes(used), psutil.disk_usage('/').percent, humanbytes(free))            
         stats_pic = await make_carbon(stats, True)
@@ -489,10 +482,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "openfilter":
         buttons = [[
-            InlineKeyboardButton('AᴜᴛᴏFɪʟᴛᴇʀ', 'autofilter'),
-            InlineKeyboardButton('MᴀɴᴜᴀʟFɪʟᴛᴇʀ', 'manuelfilter')
+            InlineKeyboardButton('✏ AᴜᴛᴏFɪʟᴛᴇʀ', 'autofilter'),
+            InlineKeyboardButton('📊 MᴀɴᴜᴀʟFɪʟᴛᴇʀ', 'manuelfilter')
             ],[
-            InlineKeyboardButton('GʟᴏʙᴀʟFɪʟᴛᴇʀ', 'globalfilter')
+            InlineKeyboardButton('📈 GʟᴏʙᴀʟFɪʟᴛᴇʀ', 'globalfilter')
             ],[
             InlineKeyboardButton('✘ Cʟᴏꜱᴇ', 'close_data'),
             InlineKeyboardButton('« Bᴀᴄᴋ', 'help')           
@@ -508,7 +501,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "manuelfilter":
         buttons = [[
-            InlineKeyboardButton('Bᴜᴛᴛᴏɴ Fᴏʀᴍᴀᴛ', 'button')
+            InlineKeyboardButton('🔘 Bᴜᴛᴛᴏɴ Fᴏʀᴍᴀᴛ', 'button')
             ],[
             InlineKeyboardButton('✘ Cʟᴏꜱᴇ', 'close_data'),
             InlineKeyboardButton('« Bᴀᴄᴋ', 'openfilter')           
@@ -517,13 +510,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "globalfilter":
         buttons = [[
-            InlineKeyboardButton('Bᴜᴛᴛᴏɴ Fᴏʀᴍᴀᴛ', 'buttong')
+            InlineKeyboardButton('🔘 Bᴜᴛᴛᴏɴ Fᴏʀᴍᴀᴛ', 'buttong')
             ],[
             InlineKeyboardButton('✘ Cʟᴏꜱᴇ', 'close_data'),
             InlineKeyboardButton('« Bᴀᴄᴋ', 'openfilter')           
         ]]
         if query.from_user.id not in ADMINS:
-            return await query.answer("Sᴏʀʀʏ Tʜɪs Mᴇɴᴜ Oɴʟʏ Fᴏʀ Mʏ Aᴅᴍɪɴs ⚒️", show_alert=True)
+            return await query.answer("𝐒ᴏʀʀʏ 𝐓ʜɪ𝐬 𝐌ᴇɴᴜ 𝐈𝐒 𝐎ɴʟʏ 𝐅ᴏʀ 𝐌ʏ 𝐀ᴅᴍ𝐈ɴ𝐬 ⚒️", show_alert=True)
         await query.edit_message_media(InputMediaPhoto(random.choice(PICS), script.GLOBALFILTER_TXT, enums.ParseMode.HTML), reply_markup=InlineKeyboardMarkup(buttons))
         
     elif query.data.startswith("button"):
@@ -563,7 +556,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         
     elif query.data == "stats":
         buttons = [[
-            InlineKeyboardButton('⟳ Rᴇꜰʀᴇꜱʜ', 'stats'),
+            InlineKeyboardButton('♻️ 𝐑ᴇꜰʀᴇꜱʜ', 'stats'),
             InlineKeyboardButton('« Bᴀᴄᴋ', 'help')           
         ]]
         total = await Media.count_documents()
