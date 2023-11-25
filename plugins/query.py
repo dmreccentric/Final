@@ -75,7 +75,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.message.delete()
                 try: await query.message.reply_to_message.delete()
                 except: pass
-            else: await query.answer("Buddy Don't Touch Others Property 😁", show_alert=True)
+            else: await query.answer("Comrade Please Don't Touch Other people's Property 😁", show_alert=True)
             
     elif "groupcb" in query.data:
         group_id = query.data.split(":")[1]
@@ -162,7 +162,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     if query.data.startswith("pmfile"):
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
-        if not files_: return await query.answer('No Such File Exist.')
+        if not files_: return await query.answer('Comrade No Such File Exist.')
         files = files_[0]
         title = files.file_name
         size = get_size(files.file_size)
@@ -184,7 +184,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             if int(req) not in [query.from_user.id, 0]:
                 return await query.answer(BUTTON_LOCK_TEXT.format(query=query.from_user.first_name), show_alert=True)
         files_ = await get_file_details(file_id)
-        if not files_: return await query.answer('No Such File Exist.')
+        if not files_: return await query.answer('Comrade No Such File Exist.')
         files = files_[0]
         title = files.file_name
         size = get_size(files.file_size)
@@ -200,9 +200,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 return await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
             else:
                 await client.send_cached_media(chat_id=query.from_user.id, file_id=file_id, caption=f_caption, protect_content=True if ident == "filep" else False)
-                await query.answer('Cʜᴇᴄᴋ PM, I Hᴀᴠᴇ Sᴇɴᴛ Fɪʟᴇs Iɴ Pᴍ', show_alert=True)
+                await query.answer('Cʜᴇᴄᴋ YOUR PM, I Hᴀᴠᴇ Sᴇɴᴛ THE FꞮʟᴇS!', show_alert=False)
         except UserIsBlocked:
-            await query.answer('Uɴʙʟᴏᴄᴋ Tʜᴇ Bᴏᴛ Mᴀʜɴ !', show_alert=True)
+            await query.answer('Comrade please unblock the bot! (Go to your settings and check privacy settings and then check your blocked users and unblock the bot there!', show_alert=True)
         except PeerIdInvalid:
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
         except Exception as e:
@@ -210,10 +210,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
      
     elif query.data.startswith("checksub"):
         if AUTH_CHANNEL and not await is_subscribed(client, query):
-            return await query.answer("I Lɪᴋᴇ Yᴏᴜʀ Sᴍᴀʀᴛɴᴇss, Bᴜᴛ Dᴏɴ'ᴛ Bᴇ Oᴠᴇʀsᴍᴀʀᴛ Oᴋᴀʏ 😏", show_alert=True)
+            return await query.answer("𝖨 𝖫𝗂𝗄𝖾 𝖸𝗈𝗎𝗋 𝖲𝗆𝖺𝗋𝗍𝗇𝖾𝗌𝗌, 𝖡𝗎𝗍 𝖣𝗈𝗇'𝗍 𝖡𝖾 𝖮𝗏𝖾𝗋𝗌𝗆𝖺𝗋𝗍 😏\n𝖩𝗈𝗂𝗇 𝖴𝗉𝖽𝖺𝗍𝖾 𝖢𝗁𝖺𝗇𝗇𝖾𝗅 𝖿𝗂𝗋𝗌𝗍", show_alert=True)
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
-        if not files_: return await query.answer('NO SUCH FILE EXIST....')
+        if not files_: return await query.answer('COMRADE NO SUCH FILE EXIST....')
         files = files_[0]
         title = files.file_name
         size = get_size(files.file_size)
