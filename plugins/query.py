@@ -13,7 +13,7 @@ from .ExtraMods.carbon import make_carbon
 
 # Database Function 
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, make_inactive
-from database.ia_filterdb import Media, get_file_details, get_search_results, get_bad_files
+from database.ia_filterdb import Media, get_file_details, get_search_results
 from database.filters_mdb import del_all, find_filter, get_filters
 from database.gfilters_mdb import find_gfilter, get_gfilters
 from database.users_chats_db import db
@@ -572,7 +572,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data.startswith("killfilesdq"):
         ident, keyword = query.data.split("#")
         await query.message.edit_text(f"<b>Fetching Files for your query {keyword} on DB... Please wait...</b>")
-        files, total = await get_bad_files(keyword)
+        files, total = await get_search_results(keyword)
         await query.message.edit_text(f"<b>Found {total} files for your query {keyword} !\n\nFile deletion process will start in 5 seconds !</b>")
         await asyncio.sleep(5)
         deleted = 0
