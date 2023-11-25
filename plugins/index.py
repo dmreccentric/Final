@@ -35,9 +35,9 @@ async def index_files(bot, query):
         return await query.answer('Wᴀɪᴛ Uɴᴛɪʟ Pʀᴇᴠɪᴏᴜs Pʀᴏᴄᴇss Cᴏᴍᴘʟᴇᴛᴇ', show_alert=True)
     msg = query.message
     button = InlineKeyboardMarkup([[
-        InlineKeyboardButton('🚫 ᴄᴀɴᴄᴇʟʟ', "index_cancel")
+        InlineKeyboardButton('🚫 ᴄᴀɴᴄᴇʟ', "index_cancel")
     ]])
-    await msg.edit("ɪɴᴅᴇxɪɴɢ ɪs sᴛᴀʀᴛᴇᴅ ✨", reply_markup=button)                        
+    await msg.edit("ɪɴᴅᴇxɪɴɢ HAS sᴛᴀʀᴛᴇᴅ ✨", reply_markup=button)                        
     try: chat = int(chat)
     except: chat = chat
     await index_files_to_db(int(lst_msg_id), chat, msg, bot)
