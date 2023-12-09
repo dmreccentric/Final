@@ -17,9 +17,9 @@ BATCH_FILES = {}
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [[           
-            InlineKeyboardButton("⚡ UᎮDΛTΞS ⚡", url="https://t.me/Lordshiptv")
+            InlineKeyboardButton("⚡ UᎮDΛTΞS ⚡", url="https://t.me/TylerBotz")
             ],[
-            InlineKeyboardButton("🔞 ΛDULϮ BԾϮ 🔞", url="https://t.me/Adultship")
+            InlineKeyboardButton("🔞 ΛDULϮ BԾϮ 🔞", url="https://t.me/TMEErotica")
         ]]
         await message.reply(START_MESSAGE.format(user=message.from_user.mention if message.from_user else message.chat.title, bot=client.mention), reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)                    
         await asyncio.sleep(2) 
@@ -33,8 +33,8 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention, message.from_user.username, temp.U_NAME))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton("🧩 TUϮԾᏒIΛL", url="https://t.me/mcrequestbot"),
-            InlineKeyboardButton("🍿 UᎮDΛTΞS 🍿", url="https://t.me/Lordshiptv")
+            InlineKeyboardButton("🧩 TUϮԾᏒIΛL", url="https://t.me/TMERequestBotTutorial"),
+            InlineKeyboardButton("🍿 UᎮDΛTΞS 🍿", url="https://t.me/TylerBotz")
             ],[
             InlineKeyboardButton("♻️ HΞLᎮ ♻️", callback_data="help"),
             InlineKeyboardButton("💫 ΛBԾUϮ 💫", callback_data="about")
@@ -67,8 +67,8 @@ async def start(client, message):
         
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
-            InlineKeyboardButton("🧩 TUϮԾᏒIΛL", url="https://t.me/mcrequestbot"),
-            InlineKeyboardButton("🍿 UᎮDΛTΞS 🍿", url="https://t.me/Lordshiptv")
+            InlineKeyboardButton("🧩 TUϮԾᏒIΛL", url="https://t.me/TMERequestBotTutorial"),
+            InlineKeyboardButton("🍿 UᎮDΛTΞS 🍿", url="https://t.me/TylerBotz")
             ],[
             InlineKeyboardButton("♻️ HΞLᎮ ♻️", callback_data="help"),
             InlineKeyboardButton("💫 ΛBԾUϮ 💫", callback_data="about")
